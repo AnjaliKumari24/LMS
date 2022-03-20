@@ -6,18 +6,19 @@ const { result } = require('lodash');
 const res = require('express/lib/response');
 const { render } = require('express/lib/response');
 const routes = require('./controllers/routes');
+const port = process.env.PORT || 5000
 
 
 
 
 //express app
 const app = express();
-const dbURI = 'mongodb+srv://anjaliNew2:ku123456@cluster0.jfvir.mongodb.net/nodes?retryWrites=true&w=majority'
+const dbURI = 'mongodb+srv://anjaliNew:ku123456@cluster0.jfvir.mongodb.net/nodes?retryWrites=true&w=majority'
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
    .then(result =>
    {   console.log(result)
        console.log("connected to database")
-       app.listen(5000)
+       app.listen(port)
     })
    .catch((err) => console.log(err));
 
